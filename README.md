@@ -1,8 +1,8 @@
 # LQ-Test-task-Cypress-TS
 ## Test task login and exploratory flow for cypress
 
-### Automated tests of https://www.redmine.org/ website with using of Page Object pattern. Tests perfoms 
-implementation of testcases for this website
+### Automated tests of https://www.redmine.org/ website with using of Page Object pattern. Tests perfoms implementation of testcases for this website
+
 
 #### Requirements: TS,NodeJS,Webdriver.io,Mocha,Cypress
 
