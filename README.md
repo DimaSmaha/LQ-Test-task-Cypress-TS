@@ -4,7 +4,7 @@
 ### Automated tests of https://www.redmine.org/ website with using of Page Object pattern. Tests perfoms 
 implementation of testcases for this website
 
-#### Requirements: TS,NodeJS,Webdriver.io,Mocha,Cypress,TS
+#### Requirements: TS,NodeJS,Webdriver.io,Mocha,Cypress
 
 ### Install software and check out the project
 - Download and install Node.JS (at least 14.X)(https://nodejs.org/uk/)
