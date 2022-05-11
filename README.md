@@ -9,7 +9,7 @@ implementation of testcases for this website
 ### Install software and check out the project
 - Download and install Node.JS (at least 14.X)(https://nodejs.org/uk/)
 - Install Visual Studio Code (https://code.visualstudio.com/)
-- Open VS code terminall and clone repository (git clone https://github.com/DimaSmaha/cypress_redmine)
+- Open VS code terminal and clone repository (git clone https://github.com/DimaSmaha/LQ-Test-task-Cypress-TS)
 - Run in terminal (npm i) to install all you needed
 - Enter (npm run e2e) to finish cypress setup
 #### Expected results: 
