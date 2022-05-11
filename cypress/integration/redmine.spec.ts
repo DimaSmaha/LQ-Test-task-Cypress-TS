@@ -1,0 +1,118 @@
+import Login from './pageobjects/cypress'
+/// <reference types="cypress" />
+const { describe } = require("mocha")
+const obj = new Login();
+
+describe('Redmine test cases',  function()  {
+  it('Register on website',  function()  {
+    obj.GoToPage()
+    obj.Register()
+  })
+  it('Sign in on website',  function()  {
+    obj.GoToPage()
+    obj.LogIn()
+  })
+  it('Password recover',  function()  {
+    obj.GoToPage()
+    obj.PassRecover()
+  })
+  xit('Download redmine repository',  function()  {
+    obj.GoToPage()
+    obj.repoVersion()
+    .click()
+    obj.downloadRepo()
+    .click()
+  })
+  it('Check available projects overview',  function()  {
+    obj.GoToPage()
+    obj.projectsButton()
+    .click()
+    obj.redmineProject()
+    .click()
+  })
+  it('Check recently added defects',  function()  {
+    obj.GoToPage()
+    obj.activityButton()
+    .click()
+    obj.defect()
+    .click()
+  })
+  it('Check Redmine versions implementation',  function()  {
+    obj.GoToPage()
+    obj.roadmapButton()
+    .click()
+    obj.implementationVersion()
+    .click()
+  })
+  it('Check Issues page filtration',  function()  {
+    obj.GoToPage()
+    obj.issuesButton()
+    .click()
+    obj.issuesAddFilter()
+    .select("tracker_id")
+    obj.issuesAddTrackerFilter()
+    .select("2")
+    obj.issuesApplyButton()
+    .click()
+  })
+  it('Add new issue',  function()  {
+    obj.GoToPage()
+    obj.LogIn()
+    obj.newIssueButton()
+    .click()
+    obj.makeNewIssue()
+  })
+  it('Check news page',  function()  {
+    obj.GoToPage()
+    obj.newsButton()
+    .click()
+    obj.news()
+    .click()
+  })
+  it('Check forums page',  function()  {
+    obj.GoToPage()
+    obj.forumButton()
+    .click()
+    obj.helpTopic()
+    .click()
+  })
+  it('Check repository page',  function()  {
+    obj.GoToPage()
+    obj.repoButton()
+    .click()
+    obj.repoPageCheck()
+  })
+  it('Change Redmine guide language',  function()  {
+    obj.GoToPage()
+    obj.helpButton()
+    .click()
+    obj.navigateToTranslation()
+    .click()
+    obj.translateToFrench()
+    .click()
+  })
+  it('Check search filtation',  function()  {
+    obj.GoToPage()
+    obj.searchInput()
+    obj.searchMessagesFilter()
+    .click()
+  })
+  it('Register without data',  function()  {
+    obj.GoToPage()
+    obj.registerButton()
+    .click()
+    obj.submitRegisterButton()
+    .click()
+    obj.errorCheck()
+  })
+  it('Register with incorrect email',  function()  {
+    obj.GoToPage()
+    obj.registerButton()
+    .click()
+    obj.registerEnterEmail()
+    obj.submitRegisterButton()
+    .click()
+    obj.errorCheck()
+  })
+})
+
