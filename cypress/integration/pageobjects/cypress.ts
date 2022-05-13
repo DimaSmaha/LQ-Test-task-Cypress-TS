@@ -1,5 +1,5 @@
 class Login {
-   
+   //functions
    GoToPage(){
       cy.viewport(1500,660)
       cy.visit('https://www.redmine.org/')
@@ -29,7 +29,7 @@ class Login {
          cy.get('[name="commit"]').click()
       }       
       
-   
+   //buttons
    projectsButton(){
          return cy.get('[class="projects"]')
    }
@@ -66,8 +66,18 @@ class Login {
    submitRegisterButton(){
       return cy.get ('[name="commit"]')
    }
+   resourcesPluginsButton(){
+      return cy.get ('[href="/plugins"]')
+   }
+   resourcesChangelogButton(){
+      return cy.get('[class="wiki-page"]').contains("Changelog")
+   }
+   resourcesSecurityButton(){
+      return cy.get('[class="wiki-page"]').contains('Security')
+   }
+   
 
-
+   //locators
    repoVersion(){
       return cy.contains('5.0.0')
    }
@@ -75,9 +85,9 @@ class Login {
       return cy.get('[href="/releases/redmine-5.0.0.zip"]')
    }
    defect(){
-      return cy.contains('Defect')
+      return cy.contains('Defect #')
    }
-   implementationVersion(){
+   roadmapImplementationVersion(){
       return cy.get('[name="4.2.6"]')
    }
    issuesAddFilter(){
@@ -122,10 +132,29 @@ class Login {
    searchMessagesFilter(){
       return cy.contains ('Сообщения')
    }
-
    registerEnterEmail(){
       cy.get('[id="user_mail"]').type('RAndommmm')
    }
+   bookImage(){
+      return cy.get ('[src="/attachments/download/14647/redmine_cookbook.png"]')
+   }
+   issuesShow50Issues(){
+      return cy.get ('[href="/projects/redmine/issues?per_page=50"]')
+   }
+   redmimeProjectAdministrator(){
+      return cy.get('[href="/users/1"]')
+   }
+   plugin(){
+      return cy.contains('Plugin')
+   }
+   changelog5series(){
+      return cy.contains('5.0.x')
+   }
+   securityVulnerabilityDetail(){
+      return cy.contains('CVE')
+   }
+
+   //checks
    repoPageCheck(){
       return cy.contains('root')
    }

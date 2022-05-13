@@ -4,6 +4,7 @@ const { describe } = require("mocha")
 const obj = new Login();
 
 describe('Redmine test cases',  function()  {
+  //Positive testing
   it('Register on website',  function()  {
     obj.GoToPage()
     obj.Register()
@@ -41,7 +42,7 @@ describe('Redmine test cases',  function()  {
     obj.GoToPage()
     obj.roadmapButton()
     .click()
-    obj.implementationVersion()
+    obj.roadmapImplementationVersion()
     .click()
   })
   it('Check Issues page filtration',  function()  {
@@ -97,6 +98,59 @@ describe('Redmine test cases',  function()  {
     obj.searchMessagesFilter()
     .click()
   })
+  it('Buy redmine book',  function()  {
+    obj.GoToPage()
+    cy.scrollTo('bottom')
+    obj.bookImage()
+  })
+  it('Check defect details through roadmap',  function()  {
+    obj.GoToPage()
+    obj.roadmapButton()
+    .click()
+    obj.roadmapImplementationVersion()
+    .click()
+    obj.defect()
+    .click()
+  })
+  it('Increase number of defects shown',  function()  {
+    obj.GoToPage()
+    obj.issuesButton()
+    .click()
+    obj.issuesShow50Issues()
+    .click()
+  })
+  it('Check project administarator profile',  function()  {
+    obj.GoToPage()
+    obj.projectsButton()
+    .click()
+    obj.redmineProject()
+    .click()
+    obj.redmimeProjectAdministrator()
+    .click()
+  })
+  it('Сheck redmine plugin details',  function()  {
+    obj.GoToPage()
+    obj.resourcesPluginsButton()
+    .click()
+    obj.plugin()
+    .click()
+  })
+  it('Check Changelog details by version',  function()  {
+    obj.GoToPage()
+    obj.resourcesChangelogButton()
+    .click()
+    obj.changelog5series()
+    .click()
+  })
+
+  it('Сheck security vulnerability details',  function()  {
+    obj.GoToPage()
+    obj.resourcesSecurityButton()
+    .click()
+    obj.securityVulnerabilityDetail()
+  })
+
+  //Negative testing
   it('Register without data',  function()  {
     obj.GoToPage()
     obj.registerButton()
