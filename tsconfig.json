@@ -4,5 +4,5 @@
       "lib": ["es5", "dom"],
       "types": ["cypress","mocha","node"]
     },
-    "include": ["./cypress/integration/*.ts"]
+    "include": ["cypress/integration/tests/redmine_tests.spec.ts"]
   }
