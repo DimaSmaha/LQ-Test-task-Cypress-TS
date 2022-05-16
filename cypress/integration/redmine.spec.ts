@@ -12,15 +12,15 @@ const func = new Functions()
 
 describe('Redmine test cases',  function()  {
   //Positive testing
-  xit('Register on website',  function()  {
+  it('Register on website',  function()  {
     func.GoToPage()
     func.Register()
   })
-  xit('Sign in on website',  function()  {
+  it('Sign in on website',  function()  {
     func.GoToPage()
     func.LogIn()
   })
-  xit('Password recover',  function()  {
+  it('Password recover',  function()  {
     func.GoToPage()
     func.PassRecover()
   })
@@ -31,28 +31,28 @@ describe('Redmine test cases',  function()  {
     obj.downloadRepo()
     .click()
   })
-  xit('Check available projects overview',  function()  {
+  it('Check available projects overview',  function()  {
     func.GoToPage()
     btn.projectsButton()
     .click()
     btn.redmineProjectButton()
     .click()
   })
-  xit('Check recently added defects',  function()  {
+  it('Check recently added defects',  function()  {
     func.GoToPage()
     btn.activityButton()
     .click()
     obj.defect()
     .click()
   })
-  xit('Check Redmine versions implementation',  function()  {
+  it('Check Redmine versions implementation',  function()  {
     func.GoToPage()
     btn.roadmapButton()
     .click()
     obj.roadmapImplementationVersion()
     .click()
   })
-  xit('Check Issues page filtration',  function()  {
+  it('Check Issues page filtration',  function()  {
     func.GoToPage()
     btn.issuesButton()
     .click()
@@ -63,34 +63,34 @@ describe('Redmine test cases',  function()  {
     obj.issuesApplyButton()
     .click()
   })
-  xit('Add new issue',  function()  {
+  it('Add new issue',  function()  {
     func.GoToPage()
     func.LogIn()
     btn.newIssueButton()
     .click()
     func.makeNewIssue()
   })
-  xit('Check news page',  function()  {
+  it('Check news page',  function()  {
     func.GoToPage()
     btn.newsButton()
     .click()
     obj.news()
     .click()
   })
-  xit('Check forums page',  function()  {
+  it('Check forums page',  function()  {
     func.GoToPage()
     btn.forumButton()
     .click()
     obj.forumsHelpTopic()
     .click()
   })
-  xit('Check repository page',  function()  {
+  it('Check repository page',  function()  {
     func.GoToPage()
     btn.repoButton()
     .click()
     obj.repoPageCheck()
   })
-  xit('Change Redmine guide language',  function()  {
+  it('Change Redmine guide language',  function()  {
     func.GoToPage()
     btn.helpButton()
     .click()
@@ -99,18 +99,18 @@ describe('Redmine test cases',  function()  {
     obj.translateToFrench()
     .click()
   })
-  xit('Check search filtation',  function()  {
+  it('Check search filtation',  function()  {
     func.GoToPage()
     obj.searchInput()
     obj.searchMessagesFilter()
     .click()
   })
-  xit('Buy redmine book',  function()  {
+  it('Buy redmine book',  function()  {
     func.GoToPage()
     cy.scrollTo('bottom')
     obj.bookImage()
   })
-  xit('Check defect details through roadmap',  function()  {
+  it('Check defect details through roadmap',  function()  {
     func.GoToPage()
     btn.roadmapButton()
     .click()
@@ -119,14 +119,14 @@ describe('Redmine test cases',  function()  {
     obj.defect()
     .click()
   })
-  xit('Increase number of defects shown',  function()  {
+  it('Increase number of defects shown',  function()  {
     func.GoToPage()
     btn.issuesButton()
     .click()
     obj.issuesShow50Issues()
     .click()
   })
-  xit('Check project administarator profile',  function()  {
+  it('Check project administarator profile',  function()  {
     func.GoToPage()
     btn.projectsButton()
     .click()
@@ -135,33 +135,33 @@ describe('Redmine test cases',  function()  {
     obj.redmimeProjectAdministrator()
     .click()
   })
-  xit('Сheck redmine plugin details',  function()  {
+  it('Сheck redmine plugin details',  function()  {
     func.GoToPage()
     btn.resourcesPluginsButton()
     .click()
     obj.plugin()
     .click()
   })
-  xit('Check Changelog details by version',  function()  {
+  it('Check Changelog details by version',  function()  {
     func.GoToPage()
     btn.resourcesChangelogButton()
     .click()
     obj.changelog5series()
     .click()
   })
-  xit('Сheck security vulnerability details',  function()  {
+  it('Сheck security vulnerability details',  function()  {
     func.GoToPage()
     btn.resourcesSecurityButton()
     .click()
     obj.securityVulnerabilityDetail()
   })
-  xit('Check list of companies that uses redmine',  function()  {
+  it('Check list of companies that uses redmine',  function()  {
     func.GoToPage()
     cy.scrollTo('bottom')
     obj.companiesThatUseRedminePage()
     .click()
   })
-  xit('Check profile details of user that added news',  function()  {
+  it('Check profile details of user that added news',  function()  {
     func.GoToPage()
     btn.newsButton()
     .click()
@@ -170,7 +170,7 @@ describe('Redmine test cases',  function()  {
     obj.userThatAddNews()
     .click()
   })
-  xit('Check forum topic sorting',  function()  {
+  it('Check forum topic sorting',  function()  {
     func.GoToPage()
     btn.forumButton()
     .click()
@@ -179,7 +179,7 @@ describe('Redmine test cases',  function()  {
     obj.forumsSortByDate()
     .click()
   })
-  xit('Check forum issue details',  function()  {
+  it('Check forum issue details',  function()  {
     func.GoToPage()
     btn.forumButton()
     .click()
@@ -188,14 +188,14 @@ describe('Redmine test cases',  function()  {
     obj.forumsUserIssue()
     .click()
   })
-  xit('Check issues page sorting',  function()  {
+  it('Check issues page sorting',  function()  {
     func.GoToPage()
     btn.issuesButton()
     .click()
     obj.issuesSortByDate()
     .click()
   })
-  xit('Check roadmap filtration',  function()  {
+  it('Check roadmap filtration',  function()  {
     func.GoToPage()
     btn.roadmapButton()
     .click()
@@ -206,7 +206,7 @@ describe('Redmine test cases',  function()  {
     obj.roadmapApply()
     .click()
   })
-  xit('Check activity filtration',  function()  {
+  it('Check activity filtration',  function()  {
     func.GoToPage()
     btn.activityButton()
     .click()
@@ -226,7 +226,7 @@ describe('Redmine test cases',  function()  {
   })
  
   //Negative testing
-  xit('Register without data',  function()  {
+  it('Register without data',  function()  {
     func.GoToPage()
     btn.registerButton()
     .click()
@@ -234,7 +234,7 @@ describe('Redmine test cases',  function()  {
     .click()
     obj.errorCheck()
   })
-  xit('Register with incorrect email',  function()  {
+  it('Register with incorrect email',  function()  {
     func.GoToPage()
     btn.registerButton()
     .click()
