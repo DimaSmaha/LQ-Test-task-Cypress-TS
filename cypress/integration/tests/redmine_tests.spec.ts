@@ -1,221 +1,221 @@
-import Objects from '../pageobjects/objects.page'
-import Buttons from '../pageobjects/buttons.page'
-import Functions from '../pageobjects/functions.page'
+import Common from '../pageobjects/common.page'
+import HomePage from '../pageobjects/home.page'
+import RegisterPage from '../pageobjects/register.page'
+import LoginPage from '..//pageobjects/login.page'
+import ProjectsPage from '../pageobjects/projects.page'
+import HelpPage from '../pageobjects/help.page'
+import OverviewPage from '../pageobjects/overview.page'
+import DownloadPage from '../pageobjects/download.page'
+import ActivityPage from '../pageobjects/activity.page'
+import RoadmapPage from '../pageobjects/roadmap.page'
+import IssuesPage from '../pageobjects/issues.page'
+import NewIssuePage from '../pageobjects/newissue.page'
+import NewsPage from '../pageobjects/news.page'
+import ForumsPage from '../pageobjects/forums.page'
+import RepositoryPage from '../pageobjects/repository.page'
+import SearchResultPage from '../pageobjects/searchresults.page'
+import ResourcesPage from '../pageobjects/resources.page'
+
 
 /// <reference types="cypress" />
 const { describe } = require("mocha")
 
-const obj = new Objects();
-const btn = new Buttons();
-const func = new Functions();
+const common = new Common();
+const home = new HomePage();
+const reg = new RegisterPage();
+const login = new LoginPage();
+const project = new ProjectsPage();
+const help = new HelpPage();
+const overview = new OverviewPage();
+const download = new DownloadPage();
+const activity = new ActivityPage();
+const roadmap = new RoadmapPage();
+const issues = new IssuesPage();
+const newissue = new NewIssuePage();
+const news = new NewsPage();
+const forums = new ForumsPage();
+const repository = new RepositoryPage();
+const searchres = new SearchResultPage();
+const resources = new ResourcesPage();
+
 
 beforeEach(() => {
-  func.GoToPage()
+  common.GoToPage()
 })
 
 describe('Redmine test cases',  function()  {
   //Positive testing
-  it('Register on website',  function()  {
-    func.Register()
+  xit('Register on website',  function()  {
+    home.clickRegisterButton()
+    reg.registerNewAccount()
+    reg.successfulRegistrationCheck()
   })
   it('Sign in on website',  function()  {
-    func.LogIn()
+    home.clickLoginButton()
+    login.LogIn()
+    login.successfulLoginCheck()
   })
   it('Password recover',  function()  {
-    func.PassRecover()
+    home.clickLoginButton()
+    login.PassRecover()
+    login.passwordRecoverCheck()
   })
   xit('Download redmine repository',  function()  {
-    btn.repoVersionButton()
-    .click()
-    obj.downloadRepo()
-    .click()
+    home.clickRepoVersionButton()
+    download.downloadRepo()
+    download.RedmineFileCheck()
   })
   it('Check available projects overview',  function()  {
-    btn.projectsButton()
-    .click()
-    btn.redmineProjectButton()
-    .click()
+    home.clickProjectsButton()
+    project.clickRedmineProjectButton()
+    project.redmineProjectCheck()
   })
   it('Check recently added defects',  function()  {
-    btn.activityButton()
-    .click()
-    obj.defect()
-    .click()
+    home.clickActivityButton()
+    common.clickDefectWord()
+    common.defectDetailsCheck()
   })
   it('Check Redmine versions implementation',  function()  {
-    btn.roadmapButton()
-    .click()
-    obj.roadmapImplementationVersion()
-    .click()
+    home.clickRoadmapButton()
+    roadmap.clickImplementationVersion()
+    roadmap.roadmapDetailsCheck()
   })
   it('Check Issues page filtration',  function()  {
-    btn.issuesButton()
-    .click()
-    obj.issuesAddFilter()
-    .select("tracker_id")
-    obj.issuesAddTrackerFilter()
-    .select("2")
-    obj.issuesApplyButton()
-    .click()
+    home.clickIssuesButton()
+    issues.addTrackerFilter()
+    issues.chooseTrackerFilter()
+    issues.clickApplyButton()
+    issues.issuesFeatureFiltrationCheck()
   })
   it('Add new issue',  function()  {
-    func.LogIn()
-    btn.newIssueButton()
-    .click()
-    func.makeNewIssue()
+    home.clickLoginButton()
+    login.LogIn()
+    home.clickNewIssueButton()
+    newissue.makeNewIssue()
+    newissue.addNewIssueCheck()
   })
   it('Check news page',  function()  {
-    btn.newsButton()
-    .click()
-    obj.news()
-    .click()
+    home.clickNewsButton()
+    news.clickAnyNews()
+    news.newsDetailsCheck()
   })
   it('Check forums page',  function()  {
-    btn.forumButton()
-    .click()
-    obj.forumsHelpTopic()
-    .click()
+    home.clickForumButton()
+    forums.clickHelpTopic()
+    forums.forumsHelpTopicCheck()
   })
   it('Check repository page',  function()  {
-    btn.repoButton()
-    .click()
-    obj.repoPageCheck()
+    home.clickRepoButton()
+    repository.repositoryPageCheck()
   })
   it('Change Redmine guide language',  function()  {
-    btn.helpButton()
-    .click()
-    obj.navigateToTranslation()
-    .click()
-    obj.translateToFrench()
-    .click()
+    home.clickHelpButton()
+    help.navigateToTranslation()
+    help.translateToFrench()
+    help.redmineGuideTranslationCheck()
   })
   it('Check search filtation',  function()  {
-    obj.searchInput()
-    obj.searchMessagesFilter()
-    .click()
+    home.useSearchInput()
+    searchres.clickSearchMessagesFilter()
+    searchres.searchFiltrationCheck()
   })
   it('Buy redmine book',  function()  {
     cy.scrollTo('bottom')
-    obj.bookImage()
+    home.bookImage()
+    home.bookImageCheck()
   })
   it('Check defect details through roadmap',  function()  {
-    btn.roadmapButton()
-    .click()
-    obj.roadmapImplementationVersion()
-    .click()
-    obj.defect()
-    .click()
+    home.clickRoadmapButton()
+    roadmap.clickImplementationVersion()
+    common.clickDefectWord()
+    common.defectDetailsCheck()
   })
   it('Increase number of defects shown',  function()  {
-    btn.issuesButton()
-    .click()
-    obj.issuesShow50Issues()
-    .click()
+    home.clickIssuesButton()
+    issues.clickShow50Issues()
+    issues.issuesShow50IssuesCheck()
   })
   it('Check project administarator profile',  function()  {
-    btn.projectsButton()
-    .click()
-    btn.redmineProjectButton()
-    .click()
-    obj.redmimeProjectAdministrator()
-    .click()
+    home.clickProjectsButton()
+    project.clickRedmineProjectButton()
+    overview.clickOnProjectAdministrator()
+    overview.administratorPageCheck()
   })
   it('Сheck redmine plugin details',  function()  {
-    btn.resourcesPluginsButton()
-    .click()
-    obj.plugin()
-    .click()
+    home.clickResourcesPluginsButton()
+    resources.ClickAnyPlugin()
+    resources.pluginDetailsCheck()
   })
   it('Check Changelog details by version',  function()  {
-    btn.resourcesChangelogButton()
-    .click()
-    obj.changelog5series()
-    .click()
+    home.clickResourcesChangelogButton()
+    resources.ClickOnChangelog5series()
+    resources.changelogDetailsCheck()
   })
   it('Сheck security vulnerability details',  function()  {
-    btn.resourcesSecurityButton()
-    .click()
-    obj.securityVulnerabilityDetail()
+    home.clickResourcesSecurityButton()
+    resources.ClickOnsecurityVulnerabilityDetail()
+    resources.vulnerabilityDetailsCheck()
   })
   it('Check list of companies that uses redmine',  function()  {
     cy.scrollTo('bottom')
-    obj.companiesThatUseRedminePage()
-    .click()
+    home.clickCompaniesThatUseRedminePage()
+    common.whoUsesRedmineCheck()
   })
   it('Check profile details of user that added news',  function()  {
-    btn.newsButton()
-    .click()
-    obj.news()
-    .click()
-    obj.userThatAddNews()
-    .click()
+    home.clickNewsButton()
+    news.clickAnyNews()
+    news.clickUserThatAddNews()
+    common.profileDetailsPageCheck()
   })
   it('Check forum topic sorting',  function()  {
-    btn.forumButton()
-    .click()
-    obj.forumsHelpTopic()
-    .click()
-    obj.forumsSortByDate()
-    .click()
+    home.clickForumButton()
+    forums.clickHelpTopic()
+    forums.clickSortByDate()
+    forums.forumsTopicsSortingCheck()
   })
   it('Check forum issue details',  function()  {
-    btn.forumButton()
-    .click()
-    obj.forumsHelpTopic()
-    .click()
-    obj.forumsUserIssue()
-    .click()
+    home.clickForumButton()
+    forums.clickHelpTopic()
+    forums.clickUserIssue()
+    forums.forumTopicsDetailsCheck()
   })
   it('Check issues page sorting',  function()  {
-    btn.issuesButton()
-    .click()
-    obj.issuesSortByDate()
-    .click()
+    home.clickIssuesButton()
+    issues.clickSortByDate()
+    issues.issuesSortingCheck()
   })
   it('Check roadmap filtration',  function()  {
-    btn.roadmapButton()
-    .click()
-    obj.roadmapDefectCheckbox()
-    .uncheck()
-    obj.roadmapFeatureCheckbox()
-    .uncheck()
-    obj.roadmapApply()
-    .click()
+    home.clickRoadmapButton()
+    roadmap.uncheckDefectCheckbox()
+    roadmap.uncheckFeatureCheckbox()
+    roadmap.clickApply()
+    roadmap.roadmapPatchesFiltrationCheck()
   })
   it('Check activity filtration',  function()  {
-    btn.activityButton()
-    .click()
-    obj.activityIssuesFiltration()
-    .click()
+    home.clickActivityButton()
+    activity.clickOnIssuesFiltration()
+    activity.activityFiltrationCheck()
   })
   it('Check API guide',  function()  {
-    btn.helpButton()
-    .click()
-    obj.helpDeveloperGuide()
-    .scrollIntoView()
-    obj.helpRedmineRestApi()
-    .click()
-    obj.apiIssuesPageGuide()
-    .click()
+    home.clickHelpButton()
+    help.scrollToDeveloperGuide()
+    help.clickRedmineRestApi()
+    common.clickApiIssuesGuide()
+    common.apiDetailsCheck()
+    
   })
   
   //Negative testing
   it('Register without data',  function()  {
-
-    btn.registerButton()
-    .click()
-    btn.submitRegisterButton()
-    .click()
-    obj.errorCheck()
+    home.clickRegisterButton()
+    reg.clickSubmitRegisterButton()
+    reg.errorCheck()
   })
   it('Register with incorrect email',  function()  {
-
-    btn.registerButton()
-    .click()
-    obj.registerEnterEmail()
-    btn.submitRegisterButton()
-    .click()
-    obj.errorCheck()
+    home.clickRegisterButton()
+    reg.enterEmail()
+    reg.clickSubmitRegisterButton()
+    reg.errorCheck()
   })
 })
 
